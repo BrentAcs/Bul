@@ -1,6 +1,6 @@
-using Bul;
+namespace Bul;
 
-public static class PoC
+public static  partial class PoC
 {
    private const int MaxCol = 15;
    private const int ColWidth = 6;
