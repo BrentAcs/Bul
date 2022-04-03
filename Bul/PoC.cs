@@ -10,8 +10,13 @@ public static class PoC
    private static readonly string Spaces = new string(' ', ColWidth - 1);
    private static readonly string Blocks = new string('\u2588', ColWidth - 1);
 
+   // private static string GenEmptyCellText() =>
+   //    $"{Spaces}{Environment.NewLine}{Spaces}{Environment.NewLine}{Spaces}";
+
    private static string GenEmptyCellText() =>
-      $"{Spaces}{Environment.NewLine}{Spaces}{Environment.NewLine}{Spaces}";
+      $"[{Theme.Active.PlayerNoneColor}]{Blocks}[/]{Environment.NewLine}" +
+      $"[{Theme.Active.PlayerNoneColor}]{Blocks}[/]{Environment.NewLine}" +
+      $"[{Theme.Active.PlayerNoneColor}]{Blocks}[/]";
 
    private static string GenCellTextPlayerOne() =>
       $"{Spaces}{Environment.NewLine}" +
