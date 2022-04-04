@@ -1,5 +1,6 @@
-using Bul;
 using Bul.Core;
+
+namespace Bul.Rendering;
 
 public static class SpaceRenderer
 {
