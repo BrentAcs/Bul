@@ -2,7 +2,7 @@ using Bul.Core;
 using Bul.Core.Extensions;
 using Bul.Rendering;
 
-namespace Bul;
+namespace Bul.Proofs;
 
 public static partial class PoC
 {

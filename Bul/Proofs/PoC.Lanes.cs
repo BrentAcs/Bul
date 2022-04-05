@@ -1,8 +1,7 @@
 using Bul.Core;
-using Bul.Core.Extensions;
 using Bul.Rendering;
 
-namespace Bul;
+namespace Bul.Proofs;
 
 public static partial class PoC
 {
@@ -18,7 +17,7 @@ public static partial class PoC
       laneTable.AddColumn(new TableColumn($"").Width(3));
       for (int col = 0; col < lane.Count; col++)
       {
-         laneTable.AddColumn(new TableColumn($"  {col + 1}  ").Width(ColWidth).Padding(new Padding(0)));
+         laneTable.AddColumn(new TableColumn($"  {col + 1}  ").Width(PoC.ColWidth).Padding(new Padding(0)));
       }
 
       laneTable.AddEmptyRow();

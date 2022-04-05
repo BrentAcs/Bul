@@ -226,53 +226,40 @@ public class SpaceTests
 
       Assert.AreEqual(2, space.CapturedCount);
    }
-
-   // [Test]
-   // public void Captured_IsNone_WhenAfterSingleCapture()
-   // {
-   //    var space = new Space()
-   //       .Capture(Stone.PlayerOne);
-   //
-   //    Assert.AreEqual(Stone.None, space.Captured);
-   // }
-   //
-   // [Test]
-   // public void Captured_IsOne_WhenAfterSecondCapture()
-   // {
-   //    var space = new Space()
-   //       .Capture(Stone.PlayerOne)
-   //       .Capture(Stone.PlayerTwo);
-   //
-   //    Assert.AreEqual(Stone.PlayerOne, space.Captured);
-   // }
-   //
-   // [Test]
-   // public void Captured_IsTwo_WhenAfterThirdCapture()
-   // {
-   //    var space = new Space()
-   //       .Capture(Stone.PlayerOne)
-   //       .Capture(Stone.PlayerTwo)
-   //       .Capture(Stone.PlayerOne);
-   //
-   //    Assert.AreEqual(Stone.PlayerTwo, space.Captured);
-   // }
-   //
-   // [Test]
-   // public void Captured_IsOne_WhenAfterFourthCapture()
-   // {
-   //    var space = new Space()
-   //       .Capture(Stone.PlayerOne)
-   //       .Capture(Stone.PlayerTwo)
-   //       .Capture(Stone.PlayerOne)
-   //       .Capture(Stone.PlayerTwo);
-   //
-   //    Assert.AreEqual(Stone.PlayerOne, space.Captured);
-   // }
+  
+   [Test]
+   public void Captured_IsOne_WhenAfterSecondCapture()
+   {
+      var space = new Space()
+         .Capture(Stone.PlayerOne)
+         .Capture(Stone.PlayerTwo);
    
+      Assert.AreEqual(Stone.PlayerOne, space.Captured);
+   }
    
+   [Test]
+   public void Captured_IsTwo_WhenAfterThirdCapture()
+   {
+      var space = new Space()
+         .Capture(Stone.PlayerOne)
+         .Capture(Stone.PlayerTwo)
+         .Capture(Stone.PlayerOne);
    
+      Assert.AreEqual(Stone.PlayerTwo, space.Captured);
+   }
    
-
+   [Test]
+   public void Captured_IsOne_WhenAfterFourthCapture()
+   {
+      var space = new Space()
+         .Capture(Stone.PlayerOne)
+         .Capture(Stone.PlayerTwo)
+         .Capture(Stone.PlayerOne)
+         .Capture(Stone.PlayerTwo);
+   
+      Assert.AreEqual(Stone.PlayerOne, space.Captured);
+   }
+   
    // ----- Capture
 
    [Test]

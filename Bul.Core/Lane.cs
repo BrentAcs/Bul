@@ -5,19 +5,22 @@ namespace Bul.Core;
 /// </summary>
 public class Lane
 {
-   public Space[] Spaces { get; }
+   private readonly Space[] _spaces;
 
    public Lane(int spaceCount)
    {
       if (spaceCount < GameOptions.MinSpaceCount || spaceCount > GameOptions.MaxSpaceCount)
          throw new ArgumentOutOfRangeException(nameof(spaceCount));
 
-      Spaces = new Space[spaceCount];
+      _spaces = new Space[spaceCount];
       for (int i = 0; i < spaceCount; i++)
-         Spaces[i] = new Space();
+         _spaces[i] = new Space();
    }
 
-   public int Count => Spaces.Length;
+   public int Count => _spaces.Length;
 
-   public Space this[int space] => Spaces[space];
+   public Space this[int space] => _spaces[space];
+
+   public int GetStoneCount(Stone stone) =>
+      _spaces.Sum(s => s.GetStoneCount(stone));
 }

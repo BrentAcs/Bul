@@ -5,32 +5,34 @@ namespace Bul.Core;
 /// </summary>
 public class Space
 {
-   public Stack<Stone> Stones { get; set; } = new();
+   private readonly Stack<Stone> _stones = new();
 
    [System.Text.Json.Serialization.JsonIgnore]
    [Newtonsoft.Json.JsonIgnore]
-   public bool IsEmpty => !Stones.Any();
+   public bool IsEmpty => !_stones.Any();
 
    [System.Text.Json.Serialization.JsonIgnore]
    [Newtonsoft.Json.JsonIgnore]
-   public int Count => Stones.Count;
+   public int Count => _stones.Count;
 
    [System.Text.Json.Serialization.JsonIgnore]
    [Newtonsoft.Json.JsonIgnore]
-   public Stone Owner => IsEmpty ? Stone.None : Stones.Peek();
+   public Stone Owner => IsEmpty ? Stone.None : _stones.Peek();
 
    [System.Text.Json.Serialization.JsonIgnore]
    [Newtonsoft.Json.JsonIgnore]
-   public Stone Captured => Count > 1 ? Stones.ToList()[ 1 ] : Stone.None;
+   public Stone Captured => Count > 1 ? _stones.ToList()[ 1 ] : Stone.None;
 
    [System.Text.Json.Serialization.JsonIgnore]
    [Newtonsoft.Json.JsonIgnore]
-   public int OwnerCount => Stones.Count(s => s == Owner);
+   public int OwnerCount => _stones.Count(s => s == Owner);
 
    [System.Text.Json.Serialization.JsonIgnore]
    [Newtonsoft.Json.JsonIgnore]
-   public int CapturedCount => Stones.Count(s => s == Captured);
+   public int CapturedCount => _stones.Count(s => s == Captured);
 
+   public int GetStoneCount(Stone stone) => _stones.Count(s => s == stone); 
+   
    public bool CanCapture(Stone stone)
    {
       if (stone == Stone.None)
@@ -39,7 +41,7 @@ public class Space
       if (IsEmpty)
          return true;
 
-      return stone != Stones.Peek();
+      return stone != _stones.Peek();
    }
 
    public Space Capture(Stone stone)
@@ -47,7 +49,7 @@ public class Space
       if (stone == Stone.None)
          throw new ArgumentOutOfRangeException(nameof(stone));
 
-      Stones.Push(stone);
+      _stones.Push(stone);
 
       return this;
    }

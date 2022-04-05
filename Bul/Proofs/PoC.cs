@@ -1,4 +1,4 @@
-namespace Bul;
+namespace Bul.Proofs;
 
 public static  partial class PoC
 {
